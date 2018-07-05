@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/RedisLabs/spark-redis.svg)](https://travis-ci.org/RedisLabs/spark-redis)
 
-# Spark-Redis
+# Spark-Redis (SUPPORT SPARK 2.3.1 & scala 2.11.11)
 A library for reading and writing data from and to [Redis](http://redis.io) with [Apache Spark](http://spark.apache.org/)
 
 Spark-Redis provides access to all of Redis' data structures - String, Hash, List, Set and Sorted Set - from Spark as RDDs. The library can be used both with Redis stand-alone as well as clustered databases. When used with Redis cluster, Spark-Redis is aware of its partitioning scheme and adjusts in response to resharding and node failure events.

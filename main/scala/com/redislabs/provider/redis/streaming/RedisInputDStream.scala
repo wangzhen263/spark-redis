@@ -55,6 +55,7 @@ private class RedisReceiver[T: ClassTag](keys: Array[String],
           } else if (classTag[T] == classTag[String]) {
             store(response.get(1).asInstanceOf[T])
           } else if (classTag[T] == classTag[(String, String)]) {
+            println(response)
             store((response.get(0), response.get(1)).asInstanceOf[T])
           } else {
             throw new scala.Exception("Unknown Redis Streaming type")
