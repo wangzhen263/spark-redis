@@ -50,12 +50,13 @@ private class RedisReceiver[T: ClassTag](keys: Array[String],
       try {
         while(!isStopped) {
           val response = conn.blpop(2, key)
-          if (response == null || response.isEmpty()) {
+          if (response == null) {
 
           } else if (classTag[T] == classTag[String]) {
             store(response.get(1).asInstanceOf[T])
           } else if (classTag[T] == classTag[(String, String)]) {
-            store((response.get(0), response.get(1)).asInstanceOf[T])
+            println("response size " + response.size)
+            if (response.size == 2) store((response.get(0), response.get(1)).asInstanceOf[T])
           } else {
             throw new scala.Exception("Unknown Redis Streaming type")
           }
